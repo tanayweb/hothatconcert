@@ -1,0 +1,213 @@
+@media only screen and (max-width: 992px) {
+    .navMenu ul li a {
+        padding: 10px 11px;
+        font-size: 12px;
+    }
+
+    .playlist ul li a {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ltNs {
+        margin: 0;
+        color: white;
+        width: max-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Font Awesome 6 Free';
+        background: #30495f;
+        text-align: center;
+    }
+
+    /* .privacy {
+        height: 300px;
+    } */
+}
+
+
+@media only screen and (max-width: 912px) {
+
+
+    /* .footerWrapper {
+        height: 950px;
+    } */
+    .memberMidle {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .bgShape {
+        height: 300px;
+    }
+
+
+}
+
+
+
+
+/* Medium devices (landscape tablets, 768px and down) */
+@media only screen and (max-width: 768px) {
+
+    .MainbodyRight .title {
+        font-size: 1rem;
+    }
+
+
+
+    .sliderImg {
+        height: 250px;
+        width: 100%;
+    }
+
+    .memberMidle {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .highlightText {
+        text-align: center;
+    }
+
+    .logoWraper {
+
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    .subscriveTitle {
+        margin-top: 30px;
+    }
+
+    .MainbodyRight {
+
+        height: auto;
+
+    }
+
+    .contactWraper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+/* small device ( mobile, 576px and down)  */
+@media only screen and (max-width: 576px) {
+    .navMenu ul li a {
+        padding: 8px 8px;
+        font-size: 10px;
+    }
+
+    .playlist {
+        margin-top: 50px;
+    }
+
+    .contactWraper {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .applyBox {
+
+        margin-top: 30px;
+    }
+
+    .events .title {
+        margin-top: 30px;
+    }
+
+}
+
+/* small device ( mobile, 576px and down)  */
+@media only screen and (max-width: 550px) {
+    .navMenu {
+        display: none;
+    }
+
+    .mobileMenu {
+        background: black;
+        position: relative;
+        color: white;
+        display: block;
+    }
+
+    .navIcon {
+        padding: 10px;
+    }
+
+    .navIcon {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 99999999;
+    }
+
+    .fixed {
+        position: fixed !important;
+    }
+
+    .nevMenu {
+        position: absolute;
+        top: 0px;
+        left: -270px;
+        z-index: 2;
+        width: 150px;
+        line-height: 2.5;
+        transition: 0.4s;
+    }
+
+    .navIcon i {
+        font-size: 40px;
+    }
+
+    .navIconEnd {
+        position: absolute;
+        top: 10px;
+        left: 120px;
+        color: red;
+        z-index: 5;
+    }
+
+    .navIconEnd i {
+        font-size: 35px;
+    }
+
+    .vision:before {
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 460px) {
+
+    .ltNs {
+
+        font-size: 8px;
+
+    }
+
+    .text h1 {
+        font-size: 18px;
+
+    }
+
+    .contactWraper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .socialLink a {
+
+        font-size: 20px;
+    }
+}
