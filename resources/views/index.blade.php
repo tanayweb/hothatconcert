@@ -118,7 +118,8 @@
                     $("#dob").datepicker({
                         changeMonth: true,
                         changeYear: true,
-                        dateFormat: 'yy-mm-dd'
+                        dateFormat: 'yy-mm-dd',
+                        yearRange: 'c-100:c+10'
                     });
                     $('#btnSubmit').click(function(){
                         var gender = $('input[name="gender"]:checked').val();
