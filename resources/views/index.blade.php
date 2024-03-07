@@ -167,6 +167,7 @@
                             success: function(response) {
                                 if(response){
                                     alert('SMS sending successful !');
+                                    location.reload();
                                 }
                             }
                         });
