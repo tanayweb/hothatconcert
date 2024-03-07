@@ -165,10 +165,18 @@
                                 about : about
                             },
                             success: function(response) {
-                                if(response){
+                                if(response == 1){
                                     alert('SMS sending successful !');
-                                    location.reload();
+                                }else if(response == 2){
+                                    alert('Failed. Duplicate mobile number got exist !');
+                                }else if(response == 3){
+                                    alert('Failed. Duplicate email got exist !');
+                                }else if(response == 4){
+                                    alert('Failed. Fill the required fields !');
+                                }else{
+                                    alert('SMS sending failed !');
                                 }
+                                location.reload();
                             }
                         });
                     });
