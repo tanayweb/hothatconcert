@@ -39,15 +39,15 @@
                             <input type="text" id="name" placeholder="Same as photo identity proof" required>
                         </div>
                         <div class="eachInput"> 
-                            <span>Mobile *** </span>
+                            <span>Mobile * </span>
                             <input type="text" id="mobile" maxlength="11" placeholder="Type your 11 digit Mobile number">
                         </div>
                         <div class="eachInput"> 
-                            <span>Email * </span>
+                            <span>Email </span>
                             <input type="email" id="email" placeholder="Type your valid Email address for Ticket">
                         </div>
                         <div class="eachInput"> 
-                            <span>Gender * </span>
+                            <span>Gender</span>
                             <div class="gwraper">
                                 <legend>Select</legend> 
                                 <div class="gSelect">
@@ -58,18 +58,18 @@
                             </div>
                         </div>
                         <div class="eachInput">    
-                            <span>DOB * </span>
+                            <span>DOB </span>
                             <input type="text" id="dob" placeholder="Enter DOB">
                         </div>
                         <div class="eachInput"> 
-                            <span>Profession * </span>
+                            <span>Profession </span>
                             <div class="gwraper">
                                 <legend>Select</legend> 
                                 <div class="gSelect">
                                     <Select id="profession">
-                                        <option value="Engineer">Student</option>
+                                        <option value="Student">Student</option>
                                         <option value="Doctor">Doctor</option>
-                                        <option value="engineer">Engineer</option>
+                                        <option value="Engineer">Engineer</option>
                                         <option value="Lawyear">Lawyear</option>
                                         <option value="Teacher">Teacher</option>
                                         <option value="Job_Holder">Job Holder</option>
@@ -140,14 +140,6 @@
                             alert('Please enter mobile number');
                             return false;
                         }
-                        if(!email){
-                            alert('Please enter email');
-                            return false;
-                        }
-                        if(!dob){
-                            alert('Please enter date of birth');
-                            return false;
-                        }
 
                         $.ajax({
                             type: 'POST',
@@ -169,8 +161,6 @@
                                     alert('SMS sending successful !');
                                 }else if(response == 2){
                                     alert('Failed. Duplicate mobile number got exist !');
-                                }else if(response == 3){
-                                    alert('Failed. Duplicate email got exist !');
                                 }else if(response == 4){
                                     alert('Failed. Fill the required fields !');
                                 }else{
