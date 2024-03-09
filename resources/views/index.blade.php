@@ -18,7 +18,9 @@
             <section>
                 <div class="sliderWraper">
                     <div class="sliderImg">
-                        <img src="{{asset('assets/images/main-1.png')}}" alt="banner img">
+                        <img class="mobileHide" src="{{asset('assets/images/main-1.png')}}" alt="banner img">
+                        <img class="mobileTab" src="{{asset('assets/images/miniBanner.png')}}" alt="banner img">
+                        <img class="tab" src="{{asset('assets/images/tab-banner.png')}}" alt="banner img">
                     </div>
                 </div>
             </section>
