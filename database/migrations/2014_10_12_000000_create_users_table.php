@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('mobile')->unique();
-            $table->string('email')->unique();
-            $table->string('dob');
-            $table->string('gender');
-            $table->string('profession');
+            $table->string('email')->nullable();
+            $table->string('dob')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('profession')->nullable();
             $table->string('institution')->nullable();
             $table->string('social')->nullable();
             $table->string('about')->nullable();
