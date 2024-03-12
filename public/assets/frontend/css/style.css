@@ -1,0 +1,587 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    background: #000000;
+    font-family: Calibri;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+.container{
+    max-width: 100% !important;
+}
+/* Header CSS */
+.header .head{
+    padding: 10px 20px;
+    align-items: center;
+}
+.header .logo img{
+    width: 100px;
+}
+.header .menu ul{
+    padding: 10px 0;
+    display: flex;
+    float: right;
+}
+.header .menu ul li a{
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.header .menu ul li a:hover{
+    color: #919191;
+}
+/* Mobile Header CSS */
+.mobilemenu{
+    display: none;
+}
+.mobilemenu ul{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.sbtn{
+    color: #fff;
+    padding: 10px 30px;
+    background: #ff0000;
+    border-radius: 6px;
+    border: 2px solid #41719C;
+    margin-right: 20px;
+    transition: 0.3s;
+}
+.sbtn:hover{
+    background: #ac0303;
+    color: #fff;
+}
+.mobilemenu ul li a img{
+    width: 60px;
+}
+/* Live TV CSS */
+.livetv .col-md-12{
+    padding-right: 0;
+    padding-left: 0;
+}
+[class*="col-"]{
+    padding-left: 0;
+    padding-right: 0;
+}
+.membership{
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+}
+.mphone{
+    display: none;
+}
+.membershiprow{
+    padding: 20px 30px;
+}
+.membershipbtn button{
+    padding: 8px 40px;
+    background: #FF0000;
+    color: #fff;
+    border-radius: 10px;
+    border: 2px solid #41719C;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.membershipbtn button:hover{
+    background: #ac0303;
+}
+.membershipbtn span{
+    color: #fff;
+    font-size: 14px;
+}
+.premiumad .col-md-12{
+    padding-right: 0;
+    padding-left: 0;
+}
+.premiumad .ad img{
+    width: 100%;
+}
+.ads{
+    border-top: 3px solid #fff;
+}
+.videos h2{
+    color: #fff;
+    background: #C00000;
+    padding: 8px 0;
+    font-weight: 500;
+    font-size:24px;
+}
+.videocard{
+    width: 100%;
+    padding: 10px;
+}
+.videos .videoslider video{
+    border-radius: 10px;
+    max-width: 100%;
+}
+.videoslider{
+    position: relative;
+}
+.videoslider .owl-nav{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.owl-theme .owl-nav{
+    margin-top: 0;
+}
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
+    background: red;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    text-align: center;
+    
+}
+.owl-theme .owl-nav [class*=owl-]{
+    padding: 0;
+    margin: 0;
+}
+.archivedbtn{
+    text-align: center;  
+}
+.archivedbtn a{
+    color: #fff;
+    background: #FF0000;
+    padding: 15px 20px;
+    border: 2px solid #41719C;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    transition: 0.3s;
+}
+.archivedbtn a:hover{
+    background: #ac0303;
+}
+.ads-bottom{
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+}
+/* Footer CSS */
+.footer .fleft{
+    padding-top: 10px;
+}
+.fleft .fmenu ul li a{
+    margin-bottom: 10px;
+    color: #fff;
+    display: inline-block;
+    transition: 0.3s;
+}
+.fleft .fmenu ul li a:hover{
+    color: #919191;
+}
+.fcenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer .fsocial{}
+.footer .fsocial ul{}
+.fsocial ul li{
+    float: left;
+    margin: 0 8px;
+}
+.fsocial ul li a{
+    display: inline-block;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 22px;
+    transition: 0.3s;
+}
+.fsocial ul li a:hover{
+    opacity: 0.6;
+}
+.fsocial .facebook{
+    background: #1B4B8D;
+}
+.fsocial .twitter{
+    background: #57ABEC;
+}
+.fsocial .instagram{
+    background: #E43465;
+}
+.fsocial .youtube{
+    background: #DF2F2E;
+}
+.fdownload{
+    padding-top: 30px;
+}
+.fdownload ul{}
+.fdownload ul li{
+    
+}
+.fdownload ul li span{
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+}
+.fdownload ul li img{
+    width: 150px;
+    margin-bottom: 10px;
+}
+.footer p{
+    color: #fff;
+}
+/* Mobile Footer CSS */
+.mfooter{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    z-index: 999;
+    padding: 10px 0;
+    display: none;
+}
+.mfooter .mfootwrapper{
+    padding: 0 30px;
+}
+.mfooter .mfootwrapper ul{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+.mfooter ul li a{
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+}
+.mfooter ul li a img{
+    width: 40px;
+    height: 40px;
+
+}
+/* Sidenav CSS */
+.sidenav{
+    position: fixed;
+    width: 50%;
+    height: calc(100% - 90px);
+    right: -100%;
+    top: 0;
+    background: #000;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 998;
+    transition: 0.3s;
+}
+.sidenav .navlink{
+    margin-top: 10px;
+}
+.sidenav .navlink ul{
+    padding-left: 0;
+}
+.sidenav .navlink ul li a{
+    color: #fff;
+    display: inline-block;
+    padding: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.sidenav .navlink ul li a:hover{
+    color: #919191;
+}
+.userbtn{}
+.userbtn li{
+    list-style: none;
+    margin-bottom: 15px;
+}
+.userbtn a{
+    color: #fff;
+    display: inline-block;
+    padding: 8px 20px;
+    background: #ff0000;
+    border-radius: 8px;
+    border: 2px solid #41719C;
+    transition: 0.3s;
+}
+.userbtn a:hover{
+    background: #cb0404;
+}
+.navsocial{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.navsocial ul{
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    padding-bottom: 0;
+}
+.navsocial ul li{
+    margin: 0 5px;
+}
+.navsocial ul li a{
+    display: inline-block;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.navsocial ul li a:hover{
+    opacity: 0.6;
+}
+.navsocial .facebook{
+    background: #1B4B8D;
+}
+.navsocial .twitter{
+    background: #57ABEC;
+}
+.navsocial .instagram{
+    background: #E43465;
+}
+.navsocial .youtube{
+    background: #DF2F2E;
+}
+.active{
+    right: 0;
+}
+.subscribebtn{
+    display: block;
+}
+/* Archives page CSS */
+.breadcumb{
+    background: #ff0000;
+    padding: 20px 0;
+}
+.breadcumb h1{
+    color: #fff;
+}
+.archvideos{
+    border-bottom: 15px solid #fff;
+}
+/* Premium Page CSS */
+.videotitle{
+    background: #C00000;
+}
+.videotitle .titlerow{
+    padding: 8px 20px;
+}
+.videotitle .title span{
+    color: #fff;
+    margin-left: 20px;
+}
+.shareicon ul{
+    justify-content: flex-end;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+.shareicon ul li a{
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+}
+.programrow{
+    padding: 0 20px;
+}
+.programdiscr h1{
+    color: #fff;
+}
+.subscribebtn .sbtn{
+    display: inline-block;
+}
+.membership_popup{
+    width: 100%;
+    position: fixed;
+    top: 30px;
+    left: 0;
+    background: transparent;
+    padding: 20px 70px;
+    z-index: 996;
+}
+.membership_popup .close_popup{
+    float: right;
+    padding-bottom: 20px;
+}
+.membership_popup .close_popup a i{
+    color: #ff0000;
+    font-size: 20px;
+    border: 1px solid #ff0000;
+    border-radius: 50%;
+    padding: 15px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+.membership_popup .package{
+    background: #fff;
+    padding: 20px;
+    border-radius: 30px;
+}
+.package .package_heading{
+    position: relative;
+}
+.package .package_heading h1{
+    margin-bottom: 0;
+}
+.package .package_heading span{
+    font-size: 18px;
+    position: absolute;
+    top: 33px;
+    left: 35px;
+}
+.package .package_btn{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.package .package_btn a{
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 14px;
+    background: #ff0000;
+    border-radius: 5px;
+    border: 1px solid #1B4B8D;
+}
+.package .package_btn a:first-child{
+    visibility: hidden;
+    opacity: 0;
+}
+.package .price{
+    display: flex;
+    justify-content: space-around;
+}
+.package .price span{
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+/* Contact page CSS */
+.contact{
+    background: #fff;
+}
+.contact_form{
+    background: #D9D9D9;
+    border-radius: 25px;
+    text-align: center;
+}
+.contact_form form{
+    margin-bottom: 50px;
+    padding: 20px;
+}
+.contact_form form .txtfield{
+    background: #f2f2f2;
+    width: 260px;
+    margin: 15px auto;
+    text-align: lq;
+    padding: 7px 5px;
+}
+.contact_form form .txtfield label{
+    font-size: 16px;
+    font-weight: 700;
+}
+.contact_form form .txtfield input{
+    border: none;
+    outline: none;
+    background: #f2f2f2;
+}
+.contact_form form .txtfield textarea{
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    width: 100%;
+    background: #f2f2f2;
+}
+.about{
+    background: #000;
+    height: 60vh;
+    margin-bottom: 50px;
+}
+.about .about_text{
+    color: #fff;
+    padding: 30px 20px;
+}
+.about .about_text .p{
+    font-size: 18px;
+    font-weight: 400;
+}
+/* Responsive CSS */
+@media only screen and (max-width: 768px){
+    .header .logo img{
+        width: 80px;
+    }
+    .live video{
+        height: 250px;
+    }
+    .videos .videoslider video{
+        margin: 0 auto;
+    }
+    .membership{
+        display: none;
+    }
+    .mphone{
+        display: block !important;
+    }
+    .ads img{
+        height: 150px;
+    }
+    .footer{
+        padding-bottom: 80px;
+    }
+    .mfooter{
+        display: block;
+    }
+    .mobilemenu{
+        display: block;
+    }
+    .deskmenu{
+        display: none;
+    }
+    .mobilemenu ul li a img{
+        width: 35px;
+    }
+    .membership_popup{
+        padding: 15px 20px !important;
+    }
+    .package_heading{
+        padding-bottom: 20px !important;
+    }
+}
+@media only screen and (max-width: 500px){
+    .mobilemenu ul li .sbtn{
+        margin-right: 10px;
+        padding: 8px 12px !important;
+    }
+    .header .head{
+        padding: 5px;
+    }
+    .mobilemenu ul{
+        
+    }
+}

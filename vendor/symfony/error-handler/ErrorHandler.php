@@ -96,7 +96,6 @@ class ErrorHandler
 
     private bool $isRecursive = false;
     private bool $isRoot = false;
-    /** @var callable|null */
     private $exceptionHandler;
     private ?BufferingLogger $bootstrappingLogger = null;
 
@@ -108,11 +107,11 @@ class ErrorHandler
     /**
      * Registers the error handler.
      */
-    public static function register(?self $handler = null, bool $replace = true): self
+    public static function register(self $handler = null, bool $replace = true): self
     {
         if (null === self::$reservedMemory) {
             self::$reservedMemory = str_repeat('x', 32768);
-            register_shutdown_function(self::handleFatalError(...));
+            register_shutdown_function(__CLASS__.'::handleFatalError');
         }
 
         if ($handlerIsNew = null === $handler) {
@@ -179,7 +178,7 @@ class ErrorHandler
         }
     }
 
-    public function __construct(?BufferingLogger $bootstrappingLogger = null, bool $debug = false)
+    public function __construct(BufferingLogger $bootstrappingLogger = null, bool $debug = false)
     {
         if ($bootstrappingLogger) {
             $this->bootstrappingLogger = $bootstrappingLogger;
@@ -359,7 +358,7 @@ class ErrorHandler
     private function reRegister(int $prev): void
     {
         if ($prev !== ($this->thrownErrors | $this->loggedErrors)) {
-            $handler = set_error_handler(static fn () => null);
+            $handler = set_error_handler('is_int');
             $handler = \is_array($handler) ? $handler[0] : null;
             restore_error_handler();
             if ($handler === $this) {
@@ -432,7 +431,7 @@ class ErrorHandler
                 return true;
             }
         } else {
-            if (PHP_VERSION_ID < 80303 && str_contains($message, '@anonymous')) {
+            if (str_contains($message, '@anonymous')) {
                 $backtrace = debug_backtrace(false, 5);
 
                 for ($i = 1; isset($backtrace[$i]); ++$i) {
@@ -440,17 +439,13 @@ class ErrorHandler
                         && ('trigger_error' === $backtrace[$i]['function'] || 'user_error' === $backtrace[$i]['function'])
                     ) {
                         if ($backtrace[$i]['args'][0] !== $message) {
-                            $message = $backtrace[$i]['args'][0];
+                            $message = $this->parseAnonymousClass($backtrace[$i]['args'][0]);
+                            $logMessage = $this->levels[$type].': '.$message;
                         }
 
                         break;
                     }
                 }
-            }
-
-            if (false !== strpos($message, "@anonymous\0")) {
-                $message = $this->parseAnonymousClass($message);
-                $logMessage = $this->levels[$type].': '.$message;
             }
 
             $errorAsException = new \ErrorException($logMessage, 0, $type, $file, $line);
@@ -521,7 +516,14 @@ class ErrorHandler
             }
         }
 
-        $exception = $this->enhanceError($exception);
+        if (!$exception instanceof OutOfMemoryError) {
+            foreach ($this->getErrorEnhancers() as $errorEnhancer) {
+                if ($e = $errorEnhancer->enhance($exception)) {
+                    $exception = $e;
+                    break;
+                }
+            }
+        }
 
         $exceptionHandler = $this->exceptionHandler;
         $this->exceptionHandler = [$this, 'renderException'];
@@ -563,7 +565,7 @@ class ErrorHandler
      *
      * @internal
      */
-    public static function handleFatalError(?array $error = null): void
+    public static function handleFatalError(array $error = null): void
     {
         if (null === self::$reservedMemory) {
             return;
@@ -644,7 +646,7 @@ class ErrorHandler
      */
     private function renderException(\Throwable $exception): void
     {
-        $renderer = \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? new CliErrorRenderer() : new HtmlErrorRenderer($this->debug);
+        $renderer = \in_array(\PHP_SAPI, ['cli', 'phpdbg'], true) ? new CliErrorRenderer() : new HtmlErrorRenderer($this->debug);
 
         $exception = $renderer->render($exception);
 
@@ -657,21 +659,6 @@ class ErrorHandler
         }
 
         echo $exception->getAsString();
-    }
-
-    public function enhanceError(\Throwable $exception): \Throwable
-    {
-        if ($exception instanceof OutOfMemoryError) {
-            return $exception;
-        }
-
-        foreach ($this->getErrorEnhancers() as $errorEnhancer) {
-            if ($e = $errorEnhancer->enhance($exception)) {
-                return $e;
-            }
-        }
-
-        return $exception;
     }
 
     /**
