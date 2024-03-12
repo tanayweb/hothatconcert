@@ -6,36 +6,8 @@
     position: relative;
 }
 
-.mobileHide {
-    display: block;
-}
-
-.mobileTab {
-    display: none;
-}
-
-.tab {
-    display: none;
-}
-
 /* banner Backgroud img openar */
 
-/* .sliderImg {
-    background-image: url(../assets/main-1.png);
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-position: center;
-    max-width: 100%;
-    height: 300px;
-} */
-
-/* .sliderWraper {
-    width: 100%;
-    height: 300px;
-} */
 
 .sliderWraper {
     width: 100%;
