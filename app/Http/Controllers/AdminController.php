@@ -26,23 +26,24 @@ class AdminController extends Controller
     public function all_po_list(Request $request)
     {
         if ($request->ajax()) {
-            $model = PO::select([
+            $model = User::select([
                 'id',
-                'contact_name',
-                'contact_number',
-                'delivery_date',
-                'delivery_address1',
-                'customer_address1',
-                'po_number'
+                'name',
+                'mobile',
+                'email',
+                'dob',
+                'gender',
+                'profession',
+                'institution',
+                'social',
+                'about',
+                'sms_sent'
             ])
                 ->orderBy('id', 'desc');
             return DataTables::eloquent($model)
-                ->addColumn('action', function ($row) {
-                    $excelBtn = '<a title="Excel" href="' . route('file-export', encrypt($row->id)) . '" class="btn btn-sm btn-outline-primary btn-icon btn-inline-blockrounded-circle js-sweetalert2-example-7"><i class="fal fa-file-excel"></i></a>';
-                    $viewBtn = '<a title="View" href="' . route('po.show', encrypt($row->id)) . '" class="btn btn-sm btn-outline-success btn-icon btn-inline-blockrounded-circle js-sweetalert2-example-7"><i class="fal fa-eye"></i></a>';
-                    ')" id="s-sweetalert2-example-7" class="btn btn-sm btn-outline-danger btn-icon btn-inline-blockrounded-circle js-sweetalert2-example-7"><i class="fal fa-trash"></i></a>';
-                    return $excelBtn . '&nbsp;&nbsp;' . $viewBtn;
-                })
+                // ->addColumn('action', function ($row) {
+                //     return $excelBtn . '&nbsp;&nbsp;' . $viewBtn;
+                // })
                 ->addIndexColumn()
                 ->toJson();
         }
@@ -52,38 +53,45 @@ class AdminController extends Controller
         ]);
     }
 
-    public function index(Request $request)
-    {
-        if ($request->ajax()) {
-            $model = PO::select([
-                'id',
-                'contact_name',
-                'contact_number',
-                'delivery_date',
-                'delivery_address1',
-                'customer_address1',
-                'po_number'
-            ])
-                ->where('user_id', Auth::user()->id)
-                ->orderBy('id', 'desc');
-            return DataTables::eloquent($model)
-                ->addColumn('action', function ($row) {
-                    $excelBtn = '<a title="Excel" href="' . route('file-export', encrypt($row->id)) . '" class="btn btn-sm btn-outline-primary btn-icon btn-inline-blockrounded-circle js-sweetalert2-example-7"><i class="fal fa-file-excel"></i></a>';
-                    $viewBtn = '<a title="View" href="' . route('po.show', encrypt($row->id)) . '" class="btn btn-sm btn-outline-success btn-icon btn-inline-blockrounded-circle js-sweetalert2-example-7"><i class="fal fa-eye"></i></a>';
-                    $editBtn = '<a title="Edit" href="' . route('po.edit', encrypt($row->id)) . '" class="btn btn-sm btn-outline-primary btn-icon btn-inline-blockrounded-circle js-sweetalert2-example-7"><i class="fal fa-edit"></i></a>';
-                    $deleteBtn = '<a title="Delete" href="javascript:void(0);" onclick="delete_alert(' . $row->id .
-                        ')" id="s-sweetalert2-example-7" class="btn btn-sm btn-outline-danger btn-icon btn-inline-blockrounded-circle js-sweetalert2-example-7"><i class="fal fa-trash"></i></a>';
-                    return $excelBtn . '&nbsp;&nbsp;' . $viewBtn . '&nbsp;&nbsp;' . $editBtn . '&nbsp;&nbsp;' . $deleteBtn;
-                })
-                ->addIndexColumn()
-                ->toJson();
-        }
-        return view('backend.po.index', [
-            'title' => 'PO List',
-            'menu' => 'PO'
+    public function report(Request $request){
+        return view('backend.report.index', [
+            'title' => 'Report',
+            'menu' => 'Report'
         ]);
     }
 
+    public function get_crowd_list(Request $request){
+        $model = USER::select([
+            'id',
+            'name',
+            'mobile',
+            'email',
+            'dob',
+            'gender',
+            'profession',
+            'institution',
+            'social',
+            'about',
+            'created_at'
+        ])
+        ->where('id','>',1)
+        ->orderBy('id', 'desc');
+        return DataTables::eloquent($model)
+            ->editColumn('profession', function ($row) {
+                if($row->profession){
+                    if($row->profession == 'Job_Holder'){
+                        return 'Job Holder';
+                    }else{
+                        return $row->profession;
+                    }
+                }
+            })
+            ->editColumn('created_at', function ($row) {
+                return date('Y-m-d',strtotime($row->created_at));
+            })
+            ->addIndexColumn()
+            ->toJson();
+    }
     /**
      * Show the form for creating a new resource.
      *

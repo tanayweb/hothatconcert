@@ -24,12 +24,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/backend') }}/img/favicon/favicon-32x32.png">
     <link rel="mask-icon" href="{{ asset('assets/backend') }}/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="stylesheet" media="screen, print" href="{{ asset('assets/backend') }}/css/miscellaneous/reactions/reactions.css">
-    <link rel="stylesheet" media="screen, print" href="{{ asset('assets/backend') }}/css/miscellaneous/fullcalendar/fullcalendar.bundle.css">
     <link rel="stylesheet" media="screen, print" href="{{ asset('assets/backend') }}/css/miscellaneous/jqvmap/jqvmap.bundle.css">
-    <link rel="stylesheet" media="screen, print" href="{{ asset('assets/backend') }}/css/notifications/sweetalert2/sweetalert2.bundle.css">
     <link rel="stylesheet" media="screen, print" href="{{ asset('assets/backend') }}/css/datagrid/datatables/datatables.bundle.css">
     <link rel="stylesheet" media="screen, print" href="{{ asset('assets/backend') }}/css/formplugins/select2/select2.bundle.css">
-    <link rel="stylesheet" media="screen, print" href="{{ asset('assets/backend') }}/css/formplugins/summernote/summernote.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
 
@@ -94,7 +91,9 @@
             <aside class="page-sidebar">
                 <div class="page-logo">
                     <a href="#" class="page-logo-link press-scale-down d-flex align-items-center position-relative" data-toggle="modal" data-target="#modal-shortcut">
-                        <span class="page-logo-text mr-1">{{ 'Airtel' }}</span>
+                        <span class="page-logo-text mr-1">{{'Airtel | Hothat Concert' }}</span>
+                        <!-- <span class=" position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
+                        <i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i> -->
                     </a>
                 </div>
                 <!-- BEGIN PRIMARY NAVIGATION -->
@@ -148,8 +147,8 @@
                     <!-- we need this logo when user switches to nav-function-top -->
                     <div class="page-logo">
                         <a href="#" class="page-logo-link press-scale-down d-flex align-items-center position-relative" data-toggle="modal" data-target="#modal-shortcut">
-                            <img src="{{ asset('assets/backend')}}/img/logo.png" alt="{{ 'Airtel' }}" aria-roledescription="logo">
-                            <span class="page-logo-text mr-1">{{ 'Airtel' }}</span>
+                            <img src="{{ asset('assets/backend')}}/img/logo.png" alt="{{'Airtel | Hothat Concert' }}" aria-roledescription="logo">
+                            <span class="page-logo-text mr-1">{{'Airtel | Hothat Concert' }}</span>
                             <span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
                             <i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i>
                         </a>
@@ -244,55 +243,13 @@
                 <!-- BEGIN Page Footer -->
                 <footer class="page-footer" role="contentinfo">
                     <div class="d-flex align-items-center flex-1 text-muted">
-                        <span class="hidden-md-down fw-700"><?= date('Y'); ?> © {{ 'Airtel' }}
+                        <span class="hidden-md-down fw-700"><?= date('Y'); ?> © {{'Airtel | Hothat Concert' }}
                     </div>
                 </footer>
                 <!-- END Page Footer -->
                 <!-- BEGIN Shortcuts -->
                 <div class="modal fade modal-backdrop-transparent" id="modal-shortcut" tabindex="-1" role="dialog" aria-labelledby="modal-shortcut" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-top modal-transparent" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <ul class="app-list w-auto h-auto p-0 text-left">
-                                    <li>
-                                        <a href="intel_introduction.html" class="app-list-item text-white border-0 m-0">
-                                            <div class="icon-stack">
-                                                <i class="base base-7 icon-stack-3x opacity-100 color-primary-500 "></i>
-                                                <i class="base base-7 icon-stack-2x opacity-100 color-primary-300 "></i>
-                                                <i class="fal fa-home icon-stack-1x opacity-100 color-white"></i>
-                                            </div>
-                                            <span class="app-list-name">
-                                                Home
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="page_inbox_general.html" class="app-list-item text-white border-0 m-0">
-                                            <div class="icon-stack">
-                                                <i class="base base-7 icon-stack-3x opacity-100 color-success-500 "></i>
-                                                <i class="base base-7 icon-stack-2x opacity-100 color-success-300 "></i>
-                                                <i class="ni ni-envelope icon-stack-1x text-white"></i>
-                                            </div>
-                                            <span class="app-list-name">
-                                                Inbox
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="intel_introduction.html" class="app-list-item text-white border-0 m-0">
-                                            <div class="icon-stack">
-                                                <i class="base base-7 icon-stack-2x opacity-100 color-primary-300 "></i>
-                                                <i class="fal fa-plus icon-stack-1x opacity-100 color-white"></i>
-                                            </div>
-                                            <span class="app-list-name">
-                                                Add More
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 <!-- END Shortcuts -->
                 <!-- BEGIN Color profile -->
@@ -958,278 +915,93 @@
 
     <script src="{{ asset('assets/backend') }}/js/vendors.bundle.js"></script>
     <script src="{{ asset('assets/backend') }}/js/app.bundle.js"></script>
-    <script src="{{ asset('assets/backend') }}/js/notifications/sweetalert2/sweetalert2.bundle.js"></script>
     <script src="{{ asset('assets/backend') }}/js/datagrid/datatables/datatables.bundle.js"></script>
     <script src="{{ asset('assets/backend') }}/js/formplugins/select2/select2.bundle.js"></script>
-    <script src="{{ asset('assets/backend') }}/js/formplugins/summernote/summernote.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.flash.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.html5.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.print.min.js"></script>
-    <!-- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
     <script type="text/javascript">
     /* Activate smart panels */
     $('#js-page-content').smartPanel();
     </script>
-    <!-- The order of scripts is irrelevant. Please check out the plugin pages for more details about these plugins below: -->
-    <!-- <script src="{{ asset('assets/backend')}}/js/dependency/moment/moment.js"></script>
-    <script src="{{ asset('assets/backend')}}/js/miscellaneous/fullcalendar/fullcalendar.bundle.js"></script>
-    <script src="{{ asset('assets/backend')}}/js/statistics/sparkline/sparkline.bundle.js"></script>
-    <script src="{{ asset('assets/backend')}}/js/statistics/easypiechart/easypiechart.bundle.js"></script>
-    <script src="{{ asset('assets/backend')}}/js/statistics/flot/flot.bundle.js"></script>
-    <script src="{{ asset('assets/backend')}}/js/miscellaneous/jqvmap/jqvmap.bundle.js"></script>
-    -->
     <script>
     $(document).ready(function() {
         $(".custom-select").select2();
         //init default
-        $('.js-summernote').summernote({
-            height: 200,
-            tabsize: 2,
-            dialogsFade: true,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['font', ['bold', 'italic', 'underline', 'clear']],
-                ['fontsize', ['fontsize']],
-                ['fontname', ['fontname']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']]
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
-        $('#po_list').DataTable({
-            "aaSorting": [],
-            responsive: false,
+        $('#crowd_list').DataTable({
             processing: true,
             serverSide: true,
-            scrollX: true,
-            bLengthChange: false,
-            ajax: "",
+            scrollX: false,
+            pageLength: 10,
+            ordering: true,
+            responsive : true,
+            searching : false,
+            bDestroy : false,
+            lengthChange : false,
+            sorting : false,
+            ajax: {
+                url: "{{route('get_crowd_list')}}",
+                type: "POST",
+                data: function (d) {
+                   
+                }
+            },
             columns: [{
                     data: 'DT_RowIndex',
-                    orderable: false,
                     searchable: false,
-                    class: "text-center"
-                },
-                {
-                    data: 'contact_name',
-                    name: 'contact_name',
-                    orderable: false,
-                },
-                {
-                    data: 'contact_number',
-                    name: 'contact_number',
-                    orderable: false,
-                },
-                {
-                    data: 'delivery_date',
-                    name: 'delivery_date',
-                    orderable: true,
-                    class: "text-center"
-                },
-                {
-                    data: 'delivery_address1',
-                    name: 'delivery_address1',
-                    orderable: false,
-                },
-                {
-                    data: 'customer_address1',
-                    name: 'customer_address1',
-                    orderable: false,
-                },
-                {
-                    data: 'po_number',
-                    name: 'po_number',
-                    orderable: false,
-                },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false,
-                    class: "text-center"
-                }
-            ],
-            dom: "<'row mb-3'<'col-sm-12 col-md-6 d-flex align-items-center justify-content-start'f><'col-sm-12 col-md-6 d-flex align-items-center justify-content-end'lB>>" +
-                "<'row'<'col-sm-12'tr>>" +
-                "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-            buttons: [{
-                    extend: 'pdfHtml5',
-                    text: 'PDF',
-                    titleAttr: 'Post List PDF',
-                    className: 'btn-outline-danger btn-sm mr-1'
-                },
-                {
-                    extend: 'excelHtml5',
-                    text: 'Excel',
-                    titleAttr: 'Post List Excel',
-                    className: 'btn-outline-success btn-sm mr-1'
-                },
-                {
-                    extend: 'csvHtml5',
-                    text: 'CSV',
-                    titleAttr: 'Post List CSV',
-                    className: 'btn-outline-primary btn-sm mr-1'
-                },
-                {
-                    extend: 'print',
-                    text: 'Print',
-                    titleAttr: 'Print Table',
-                    className: 'btn-outline-primary btn-sm',
-                    footer: true,
-                }
-            ]
-        });
-        $('#all_po_list').DataTable({
-            "aaSorting": [],
-            responsive: false,
-            processing: true,
-            serverSide: true,
-            bLengthChange: false,
-            scrollX: true,
-            ajax: "",
-            columns: [{
-                    data: 'DT_RowIndex',
-                    orderable: false,
-                    searchable: false,
-                    class: "text-center"
-                },
-                {
-                    data: 'id',
-                    name: 'id',
-                    searchable: true,
                     class: "text-center",
-                    orderable: false,
-                    render: function(data, type, row) {
-                        return '<b> RefNo - ' + row.id + '</b>';
-                    }
-                },
-                {
-                    data: 'contact_name',
-                    name: 'contact_name',
-                    orderable: false,
-                },
-                {
-                    data: 'contact_number',
-                    name: 'contact_number',
-                    orderable: false,
-                },
-                {
-                    data: 'delivery_date',
-                    name: 'delivery_date',
-                    orderable: true,
-                    class: "text-center"
-                },
-                {
-                    data: 'delivery_address1',
-                    name: 'delivery_address1',
-                    orderable: false,
-                },
-                {
-                    data: 'customer_address1',
-                    name: 'customer_address1',
-                    orderable: false,
-                },
-                {
-                    data: 'po_number',
-                    name: 'po_number',
-                    orderable: false,
-                },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false,
-                    class: "text-center"
-                }
-            ],
-            dom: "<'row mb-3'<'col-sm-12 col-md-6 d-flex align-items-center justify-content-start'f><'col-sm-12 col-md-6 d-flex align-items-center justify-content-end'lB>>" +
-                "<'row'<'col-sm-12'tr>>" +
-                "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-            buttons: [{
-                    extend: 'pdfHtml5',
-                    text: 'PDF',
-                    titleAttr: 'Post List PDF',
-                    className: 'btn-outline-danger btn-sm mr-1'
-                },
-                {
-                    extend: 'excelHtml5',
-                    text: 'Excel',
-                    titleAttr: 'Post List Excel',
-                    className: 'btn-outline-success btn-sm mr-1'
-                },
-                {
-                    extend: 'csvHtml5',
-                    text: 'CSV',
-                    titleAttr: 'Post List CSV',
-                    className: 'btn-outline-primary btn-sm mr-1'
-                },
-                {
-                    extend: 'print',
-                    text: 'Print',
-                    titleAttr: 'Print Table',
-                    className: 'btn-outline-primary btn-sm',
-                    footer: true,
-                }
-            ]
-        });
-        $('#user_list').DataTable({
-            "aaSorting": [],
-            responsive: false,
-            processing: true,
-            serverSide: true,
-            ajax: "",
-            columns: [{
-                    data: 'id',
-                    name: 'id'
+                    orderable: false
                 },
                 {
                     data: 'name',
-                    name: 'name'
+                    name: 'name',
+                    searchable: true,
+                    orderable: false
                 },
                 {
-                    data: 'role',
-                    name: 'role',
-                    className: 'text-center',
-                    render: function(data, type, row, meta) {
-                        let txt = '';
-                        if (data == 1) {
-                            txt = '<span class="badge badge-success badge-pill">Admin</span>';
-                        } else if (data == 2) {
-                            txt = '<span class="badge badge-primary badge-pill">Manager</span>';
-                        } else if (data == 3) {
-                            txt = '<span class="badge badge-primary badge-pill">Reception</span>';
-                        } else if (data == 4) {
-                            txt = '<span class="badge badge-warning badge-pill text-white">Trainer</span>';
-                        } else if (data == 5) {
-                            txt = '<span class="badge badge-warning badge-pill text-white">Accountant</span>';
-                        } else if (data == 6) {
-                            txt = '<span class="badge badge-info badge-pill">Client</span>';
-                        } else if (data == 8) {
-                            txt = '<span class="badge badge-primary badge-pill">Fitness Trainer</span>';
-                        }else {
-                            txt = '<span class="badge badge-danger badge-pill">Unauthorized User</span>';
-                        }
-                        return txt;
-                    }
+                    data: 'mobile',
+                    name: 'mobile',
+                    orderable: false,
                 },
                 {
                     data: 'email',
-                    name: 'email'
+                    name: 'email',
+                    orderable: false,
                 },
                 {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false
+                    data: 'dob',
+                    name: 'dob',
+                    class: "text-center",
+                    orderable: false
                 },
+                {
+                    data: 'gender',
+                    name: 'gender',
+                    orderable: false,
+                },
+                {
+                    data: 'profession',
+                    name: 'profession',
+                    orderable: false,
+                },
+                {
+                    data: 'institution',
+                    name: 'institution',
+                    orderable: false,
+                },
+                {
+                    data: 'social',
+                    name: 'social',
+                    orderable: false,
+                    searchable: false,
+                },
+                {
+                    data: 'about',
+                    name: 'about',
+                    orderable: false,
+                },
+                {
+                    data: 'created_at',
+                    name: 'created_at',
+                    orderable: false,
+                }
             ]
         });
     });

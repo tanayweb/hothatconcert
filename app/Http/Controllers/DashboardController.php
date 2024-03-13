@@ -12,8 +12,10 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
+        $total_user = User::select('*')->get();
         return view('backend.dashboard', [
-            'title' => 'Dashboard'
+            'title' => 'Dashboard',
+            'total_user' => count($total_user)
         ]);
     }
 }

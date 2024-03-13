@@ -21,3 +21,5 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 .idea
+.env
+vendor
