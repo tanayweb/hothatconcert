@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('about')->nullable();
             $table->boolean('sms_sent');
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
