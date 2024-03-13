@@ -27,14 +27,14 @@
                 <div class="panel-container show">
                     <div class="panel-content">
                         <!-- datatable start -->
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-3">
-                                <input type="date" id="start_date" placeholder="Enter Start Date" class="form-control" autocomplete="off"/>
+                                <input type="text" id="start_date" placeholder="Enter Start Date" class="form-control" autocomplete="off"/>
                             </div>
                             <div class="col-md-3">
-                                <input type="date" id="end_date" placeholder="Enter End Date" class="form-control" autocomplete="off"/>
+                                <input type="text" id="end_date" placeholder="Enter End Date" class="form-control" autocomplete="off"/>
                             </div>
-                        </div>
+                        </div> -->
                         <table id="crowd_list" class="table table-bordered table-hover table-striped w-100">
                             <thead class="bg-primary-600">
                                 <tr>
@@ -96,4 +96,7 @@
     </script>
 </main>
 <!-- this overlay is activated only when mobile menu is triggered -->
+@endsection
+@section('js')
+<!--for dashboard pie chart-->
 @endsection

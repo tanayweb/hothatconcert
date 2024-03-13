@@ -917,6 +917,8 @@
     <script src="{{ asset('assets/backend') }}/js/app.bundle.js"></script>
     <script src="{{ asset('assets/backend') }}/js/datagrid/datatables/datatables.bundle.js"></script>
     <script src="{{ asset('assets/backend') }}/js/formplugins/select2/select2.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script type="text/javascript">
     /* Activate smart panels */
     $('#js-page-content').smartPanel();

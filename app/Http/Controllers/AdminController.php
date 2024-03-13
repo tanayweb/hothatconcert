@@ -56,7 +56,8 @@ class AdminController extends Controller
     public function report(Request $request){
         return view('backend.report.index', [
             'title' => 'Report',
-            'menu' => 'Report'
+            'menu' => 'Report',
+            'active' => 2
         ]);
     }
 
