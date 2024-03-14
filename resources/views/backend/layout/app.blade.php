@@ -28,7 +28,11 @@
     <link rel="stylesheet" media="screen, print" href="{{ asset('assets/backend') }}/css/datagrid/datatables/datatables.bundle.css">
     <link rel="stylesheet" media="screen, print" href="{{ asset('assets/backend') }}/css/formplugins/select2/select2.bundle.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-
+    <style>
+        .ui-datepicker .ui-widget-header { /*Change Datepickers background color*/
+            background: #8460b7 !important;
+        }
+    </style>
 
     @yield('css')
 </head>
@@ -925,7 +929,7 @@
     </script>
     <script>
     function get_data(start_date = '',end_date=''){
-        $('#crowd_list').DataTable({
+        table = $('#crowd_list').removeAttr('width').DataTable({
             processing: true,
             serverSide: true,
             scrollX: false,
@@ -1021,20 +1025,22 @@
     $('#btn_export').click(function(){
         var start_date = $('#start_date').val();
         var end_date = $('#end_date').val();
-        if(start_date && end_date){
-            $.ajax({
-                type : "GET",
-                url : "{{route('export_data')}}",
-                data : {
-                    start_date : start_date,
-                    end_date : end_date,
-                    _token : '{{ csrf_token() }}'
-                },
-                success : function(response){
-                        
-                }
-            });
-        }
+        var url = "{{ route('export_data', ['start_date' => ':start_date', 'end_date' => ':end_date']) }}"
+            .replace(':start_date', start_date)
+            .replace(':end_date', end_date);
+        $.ajax({
+            type : "GET",
+            url : url,
+            data : {
+                
+            },
+            success : function(response){
+                window.location.href = url;
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
     });
     const deleteAlert = (id) => {
         event.preventDefault();
