@@ -27,14 +27,17 @@
                 <div class="panel-container show">
                     <div class="panel-content">
                         <!-- datatable start -->
-                        <!-- <div class="row">
+                        <div class="row">
                             <div class="col-md-3">
-                                <input type="text" id="start_date" placeholder="Enter Start Date" class="form-control" autocomplete="off"/>
+                                <input type="text" id="start_date" placeholder="Enter Start Date" class="form-control date" autocomplete="off"/>
                             </div>
                             <div class="col-md-3">
-                                <input type="text" id="end_date" placeholder="Enter End Date" class="form-control" autocomplete="off"/>
+                                <input type="text" id="end_date" placeholder="Enter End Date" class="form-control date" autocomplete="off"/>
                             </div>
-                        </div> -->
+                            <div class="col-md-3">
+                                <button id="btn_export" class="btn btn-md btn-info">Export</button>
+                            </div>
+                        </div>
                         <table id="crowd_list" class="table table-bordered table-hover table-striped w-100">
                             <thead class="bg-primary-600">
                                 <tr>
@@ -98,5 +101,15 @@
 <!-- this overlay is activated only when mobile menu is triggered -->
 @endsection
 @section('js')
-<!--for dashboard pie chart-->
+<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' rel='stylesheet'>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function(){
+   $('.date').datepicker({
+        dateFormat : 'yy-mm-dd',
+        changeMonth : true,
+        changeYear : true
+   });
+});
+</script>
 @endsection

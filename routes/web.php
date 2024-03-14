@@ -12,7 +12,7 @@ Route::post('/register', [ActionController::class, 'register'])->name('register'
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified']], function () {
     Route::get('/report', [AdminController::class, 'report'])->name('report');
     Route::post('/get_crowd_list', [AdminController::class, 'get_crowd_list'])->name('get_crowd_list');
-    Route::get('file-export/{id}', [POController::class, 'fileExport'])->name('file-export');
+    Route::get('export_data', [AdminController::class, 'fileExport'])->name('export_data');
 });
 Route::get('/clear-cache', function () {
     \Artisan::call('cache:clear');

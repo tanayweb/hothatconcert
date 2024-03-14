@@ -924,9 +924,7 @@
     $('#js-page-content').smartPanel();
     </script>
     <script>
-    $(document).ready(function() {
-        $(".custom-select").select2();
-        //init default
+    function get_data(start_date = '',end_date=''){
         $('#crowd_list').DataTable({
             processing: true,
             serverSide: true,
@@ -935,14 +933,15 @@
             ordering: true,
             responsive : true,
             searching : false,
-            bDestroy : false,
+            bDestroy : true,
             lengthChange : false,
             sorting : false,
             ajax: {
                 url: "{{route('get_crowd_list')}}",
                 type: "POST",
                 data: function (d) {
-                   
+                   d.start_date = start_date;
+                   d.end_date = end_date;
                 }
             },
             columns: [{
@@ -1006,11 +1005,37 @@
                 }
             ]
         });
+    }
+    $(document).ready(function() {
+        $(".custom-select").select2();
+        get_data();
     });
 
-    //profile table
-
-
+    $('.date').change(function(){
+        var start_date = $('#start_date').val();
+        var end_date = $('#end_date').val();
+        if(start_date && end_date){
+            get_data(start_date,end_date);
+        }
+    });
+    $('#btn_export').click(function(){
+        var start_date = $('#start_date').val();
+        var end_date = $('#end_date').val();
+        if(start_date && end_date){
+            $.ajax({
+                type : "GET",
+                url : "{{route('export_data')}}",
+                data : {
+                    start_date : start_date,
+                    end_date : end_date,
+                    _token : '{{ csrf_token() }}'
+                },
+                success : function(response){
+                        
+                }
+            });
+        }
+    });
     const deleteAlert = (id) => {
         event.preventDefault();
         Swal.fire({

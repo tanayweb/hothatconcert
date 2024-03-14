@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Exports\FileExport;
+use Illuminate\Support\Facades\File;
+use Maatwebsite\Excel\Facades\Excel;
 use DataTables;
 use Alert;
 use Auth;
@@ -23,36 +26,6 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function all_po_list(Request $request)
-    {
-        if ($request->ajax()) {
-            $model = User::select([
-                'id',
-                'name',
-                'mobile',
-                'email',
-                'dob',
-                'gender',
-                'profession',
-                'institution',
-                'social',
-                'about',
-                'sms_sent'
-            ])
-                ->orderBy('id', 'desc');
-            return DataTables::eloquent($model)
-                // ->addColumn('action', function ($row) {
-                //     return $excelBtn . '&nbsp;&nbsp;' . $viewBtn;
-                // })
-                ->addIndexColumn()
-                ->toJson();
-        }
-        return view('backend.po.list', [
-            'title' => 'All PO List',
-            'menu' => 'PO'
-        ]);
-    }
-
     public function report(Request $request){
         return view('backend.report.index', [
             'title' => 'Report',
@@ -62,7 +35,7 @@ class AdminController extends Controller
     }
 
     public function get_crowd_list(Request $request){
-        $model = USER::select([
+        $model = User::select([
             'id',
             'name',
             'mobile',
@@ -75,8 +48,12 @@ class AdminController extends Controller
             'about',
             'created_at'
         ])
-        ->where('id','>',1)
-        ->orderBy('id', 'desc');
+        ->where('id','>',1);
+        if($request->start_date && $request->end_date){
+            $model = $model->whereDate('created_at', '>=', $request->start_date);
+            $model = $model->whereDate('created_at', '<=', $request->end_date);
+        }
+        $model = $model->orderBy('id', 'desc');
         return DataTables::eloquent($model)
             ->editColumn('profession', function ($row) {
                 if($row->profession){
@@ -98,13 +75,6 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('backend.po.create', [
-            'title' => 'PO Create',
-            'menu' => 'PO Settings'
-        ]);
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -166,24 +136,8 @@ class AdminController extends Controller
     {
         
     }
-
-    public function delete_po_detail(Request $request)
+    public function fileExport(Request $request)
     {
-        
-    }
-
-    public function update_logo(Request $request)
-    {
-        
-    }
-
-    public function fileExport($id)
-    {
-        return Excel::download(new PoExport(decrypt($id)), 'po-collection.xlsx');
-    }
-
-    public function create_package()
-    {
-        
+        return Excel::download(new FileExport($request->start_date,$request->end_date), 'hothatconcert-users.xlsx');
     }
 }

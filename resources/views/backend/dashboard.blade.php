@@ -65,14 +65,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
-
+        <div class="col-md-2">
+            
         </div>
-        <div class="col-md-4">
+        <div class="col-md-8">
             <canvas id="widget_chart"></canvas>
-        </div>
-        <div class="col-md-4">
-
         </div>
     </div>
 </main>
@@ -101,11 +98,11 @@ $(document).ready(function() {
     ];
 
     new Chart(ctx, {
-        type: 'pie',
+        type: 'bar',
         data: {
             labels: chartLabels,
             datasets: [{
-                label: '# of Users',
+                label: 'No. of Users',
                 data: chartData,
             }]
         },
