@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost/concert'),
+    'url' => env('APP_URL', 'https://hothatconcert.com'),
 
     'asset_url' => env('ASSET_URL'),
 
