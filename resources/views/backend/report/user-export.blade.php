@@ -20,6 +20,11 @@
                 @if($users)
                     @php $sl = 0; @endphp
                     @foreach($users as $user)
+                        @if($user->profession == 'Job_Holder')
+                            @php $profession = 'Job Holder'; @endphp
+                        @else
+                            @php $profession = $user->profession; @endphp    
+                        @endif
                         <tr>
                             <td>{{++$sl}}</td>
                             <td>{{$user->name}}</td>
@@ -27,7 +32,7 @@
                             <td>{{$user->email}}</td>
                             <td>{{$user->dob}}</td>
                             <td>{{$user->gender}}</td>
-                            <td>{{$user->profession}}</td>
+                            <td>{{$profession}}</td>
                             <td>{{$user->institution}}</td>
                             <td>{{$user->social}}</td>
                             <td>{{$user->about}}</td>
