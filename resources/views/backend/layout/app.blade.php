@@ -924,12 +924,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script type="text/javascript">
-    /* Activate smart panels */
     $('#js-page-content').smartPanel();
-    </script>
-    <script>
-    function get_data(start_date = '',end_date=''){
-        table = $('#crowd_list').removeAttr('width').DataTable({
+
+    $(document).ready(function() {
+        $(".custom-select").select2();
+        var table = $('#crowd_list').removeAttr('width').DataTable({
             processing: true,
             serverSide: true,
             scrollX: false,
@@ -944,8 +943,8 @@
                 url: "{{route('get_crowd_list')}}",
                 type: "POST",
                 data: function (d) {
-                   d.start_date = start_date;
-                   d.end_date = end_date;
+                   d.start_date = $('#start_date').val();
+                   d.end_date = $('#end_date').val();
                 }
             },
             columns: [{
@@ -1009,39 +1008,31 @@
                 }
             ]
         });
-    }
-    $(document).ready(function() {
-        $(".custom-select").select2();
-        get_data();
-    });
-
-    $('.date').change(function(){
-        var start_date = $('#start_date').val();
-        var end_date = $('#end_date').val();
-        if(start_date && end_date){
-            get_data(start_date,end_date);
-        }
-    });
-    $('#btn_export').click(function(){
-        var start_date = $('#start_date').val();
-        var end_date = $('#end_date').val();
-        var url = "{{ route('export_data', ['start_date' => ':start_date', 'end_date' => ':end_date']) }}"
-            .replace(':start_date', start_date)
-            .replace(':end_date', end_date);
-        $.ajax({
-            type : "GET",
-            url : url,
-            data : {
-                
-            },
-            success : function(response){
-                window.location.href = url;
-            },
-            error: function(xhr, status, error) {
-                console.error(xhr.responseText);
-            }
+        $('.date').change(function(){
+            table.draw();
+        });
+        $('#btn_export').click(function(){
+            var start_date = $('#start_date').val();
+            var end_date = $('#end_date').val();
+            var url = "{{ route('export_data', ['start_date' => ':start_date', 'end_date' => ':end_date']) }}"
+                .replace(':start_date', start_date)
+                .replace(':end_date', end_date);
+            $.ajax({
+                type : "GET",
+                url : url,
+                data : {
+                    
+                },
+                success : function(response){
+                    window.location.href = url;
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
         });
     });
+    
     const deleteAlert = (id) => {
         event.preventDefault();
         Swal.fire({
