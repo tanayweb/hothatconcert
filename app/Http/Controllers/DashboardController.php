@@ -24,34 +24,34 @@ class DashboardController extends Controller
         $total_others = User::select('*')->where('profession','Other')->get();
         
         if(!$total_user){
-            $total_user = 0;
+            $total_user = [];
         }
         if(!$total_male){
-            $total_male = 0;
+            $total_male = [];
         }
         if(!$total_students){
-            $total_students = 0;
+            $total_students = [];
         }
         if(!$total_engineers){
-            $total_engineers = 0;
+            $total_engineers = [];
         }
         if(!$total_doctors){
-            $total_doctors = 0;
+            $total_doctors = [];
         }
         if(!$total_lawyears){
-            $total_lawyears = 0;
+            $total_lawyears = [];
         }
         if(!$total_teachers){
-            $total_teachers = 0;
+            $total_teachers = [];
         }
         if(!$total_job_holders){
-            $total_job_holders = 0;
+            $total_job_holders = [];
         }
         if(!$total_businessman){
-            $total_businessman = 0;
+            $total_businessman = [];
         }
         if(!$total_others){
-            $total_others = 0;
+            $total_others = [];
         }
         return view('backend.dashboard', [
             'title' => 'Dashboard',
